@@ -35,39 +35,17 @@ namespace BirthdayMatches
             {
                 Person person = new Person();
 
-                if (people.ContainsKey(person.birthday))
+                if (people.ContainsKey(person._birthday))
                 {
-                    people[person.birthday]++;
+                    people[person._birthday]++;
                 }
                 else
                 {
-                    people.Add(person.birthday, 1);
+                    people.Add(person._birthday, 1);
                 }
 
-                Console.WriteLine(person.birthday + "   ||   " + people[person.birthday]);
+                Console.WriteLine(person._birthday + "   ||   " + people[person._birthday]);
             }
-        }
-
-    }
-
-    class Person
-    {
-        private Random gen = new Random();
-        public DateTime birthday
-        {
-            get;
-            set;
-        }
-        public Person()
-        {
-            birthday = RandomDay();
-        }
-
-        DateTime RandomDay()
-        {
-            DateTime start = new DateTime(1995, 1, 1);
-            int range = (DateTime.Today - start).Days;
-            return start.AddDays(gen.Next(range));
         }
 
     }
